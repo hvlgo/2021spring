@@ -1,0 +1,10 @@
+all: main
+object = main.o Farm.o
+main: $(object) 
+	g++ $^ -o main -g
+Farm.o: Farm.cpp
+	g++ -c $^ -o Farm.o 
+main.o: main.cpp Farm.h Cow.h
+	g++ -c $< -o main.o 
+clean:
+	del *.o
